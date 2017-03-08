@@ -3,9 +3,9 @@ package sensu
 import (
 	"testing"
 
-	stdCheck "github.com/upfluence/sensu-client-go/Godeps/_workspace/src/github.com/upfluence/sensu-go/sensu/check"
-	"github.com/upfluence/sensu-client-go/sensu/check"
-	"github.com/upfluence/sensu-client-go/sensu/handler"
+	stdCheck "github.com/gbolo/go-sensu-tls/sensu/check"
+	"github.com/gbolo/go-sensu-client-tls/sensu/check"
+	"github.com/gbolo/go-sensu-client-tls/sensu/handler"
 )
 
 func validateCheckOutput(

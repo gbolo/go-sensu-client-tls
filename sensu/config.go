@@ -8,9 +8,9 @@ import (
 	"strings"
 	"fmt"
 
-	"github.com/upfluence/sensu-client-go/Godeps/_workspace/src/github.com/upfluence/sensu-go/sensu/check"
-	"github.com/upfluence/sensu-client-go/Godeps/_workspace/src/github.com/upfluence/sensu-go/sensu/client"
-	"github.com/upfluence/sensu-client-go/Godeps/_workspace/src/github.com/upfluence/sensu-go/sensu/transport/rabbitmq"
+	"github.com/gbolo/go-sensu-tls/sensu/check"
+	"github.com/gbolo/go-sensu-tls/sensu/client"
+	"github.com/gbolo/go-sensu-tls/sensu/transport/rabbitmq"
 )
 
 const defaultRabbitMQURI string = "amqp://guest:guest@localhost:5672/%2F"

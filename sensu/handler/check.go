@@ -3,8 +3,8 @@ package handler
 import (
 	"fmt"
 
-	stdCheck "github.com/upfluence/sensu-client-go/Godeps/_workspace/src/github.com/upfluence/sensu-go/sensu/check"
-	"github.com/upfluence/sensu-client-go/sensu/check"
+	stdCheck "github.com/gbolo/go-sensu-tls/sensu/check"
+	"github.com/gbolo/go-sensu-client-tls/sensu/check"
 )
 
 func Ok(message string) check.ExtensionCheckResult {

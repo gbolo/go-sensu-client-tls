@@ -4,8 +4,8 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/upfluence/sensu-client-go/sensu/check"
-	"github.com/upfluence/sensu-client-go/sensu/handler"
+	"github.com/gbolo/go-sensu-client-tls/sensu/check"
+	"github.com/gbolo/go-sensu-client-tls/sensu/handler"
 )
 
 func EnvironmentValueOrConst(envVar string, constVal float64) float64 {
