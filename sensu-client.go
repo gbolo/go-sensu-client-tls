@@ -8,19 +8,24 @@ import (
 )
 
 func main() {
-	cfg, err := sensu.NewConfigFromFlagSet(sensu.ExtractFlags())
+	sensuConfig, err := sensu.NewConfigFromFlagSet(sensu.ExtractFlags())
 
 	if err != nil {
-		log.Fatal(err.Error())
+		log.Fatalf("Error reading Sensu config: %s", err)
 	}
 
-	t, err := rabbitmq.NewRabbitMQTransport(cfg.RabbitMQURI())
+	haConfig, err := sensuConfig.RabbitMQHAConfig()
+	if err != nil {
+		log.Fatalf("Error reading RabbitMQ HA config: %s", err)
+	}
+
+	transport := rabbitmq.NewRabbitMQHATransport(haConfig)
+
+	sensuClient := sensu.NewClient(transport, sensuConfig)
+
+	err = sensuClient.Start()
 
 	if err != nil {
-		log.Fatal(err.Error())
+		log.Fatalf("Failed to start the Sensu client: %s", err)
 	}
-
-	client := sensu.NewClient(t, cfg)
-
-	client.Start()
 }
