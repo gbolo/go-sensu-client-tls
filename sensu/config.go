@@ -73,6 +73,13 @@ func NewConfigFromFile(flagset *configFlagSet, configFile string) (*Config, erro
 		return nil, errNoClientName
 	}
 
+	// temp - allow hostname to be set as client name if you want
+	if os.Getenv("SENSU_AUTO_NAME") == "true" {
+		// temp hack for docker containers
+		fmt.Println("env SENSU_AUTO_NAME is true - hostname as client name")
+		cfg.config.Client.Name, _ = os.Hostname()
+	}
+
 	// If we reached this point, we have a client name.
 	// emulate ruby client behavior: add default subscription - client:name
 	// Without at least one subscription sensu server will crash.
